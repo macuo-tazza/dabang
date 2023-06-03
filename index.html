@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="UTF-8">     
+    <meta name="robots" content="index,follow">  
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+</head>
+<style>
+*,html,body {font-family: NanumGothic, -apple-system, sans-serif; }
+.main_visual {height:465px; background-image: linear-gradient(134deg, rgb(19, 183, 207) -5%, rgb(54, 91, 180) 56%, rgb(54, 91, 180) 56%); color:#fff;}
+.main_visual .header {min-width:1200px; height:80px; line-height:80px; margin:0 auto; padding:0 20px; display:flex; color:#fff;}
+.main_visual .header .logo a {display:flex; align-items:center; height:70px; margin-top:10px;}
+.main_visual .header .gnb {display:flex; margin-left:auto; align-items:center;/*세로정렬*/}
+.main_visual .header .gnb ul {display:flex;}
+.main_visual .header .gnb ul li {margin-left:40px;}
+.main_visual .header .gnb ul li a {color:#fff; font-size:16px;}
+.main_visual .header .gnb button {margin-left:40px; height:40px; line-height:24px; border:1px solid rgb(223, 223, 223); padding:0px 20px; color:#fff; font-weight:700;}
+.main_visual .header .gnb .inquiry {margin-left:8px; height:40px; line-height:40px; border:1px solid rgb(223, 223, 223); padding:0px 20px; color:#fff; font-weight:700; display:inline-block; }
+.main_visual .search {width:1180px; margin:0 auto;}
+.main_visual .search h1 {margin:85px 0 0; font-weight:300; line-height:60px; font-size:40px;}
+.main_visual .search > div {display:flex; height:30px; margin:40px 0px 20px;}
+.main_visual .search > div a {font-size:16px; line-height:24px; color:rgb(255, 255, 255); cursor:pointer; }
+.main_visual .search > div a + a {margin-left:24px;}
+.main_visual .search > div a::after {content:""; display:block; width:100%; margin-top:4px; border-bottom:2px solid rgb(255, 255, 255);}
+.main_visual .search form {width:1180px; height:72px; background:#fff; display:flex;}
+.main_visual .search form label {height:72px; padding:0px 20px 0 40px; display:flex; align-items:center;}
+.main_visual .search form input {display:flex; align-items:center; width:100%; height:100%; font-size:18px; border:0px; background-color:transparent;}
+.container {color:#222;}
+.container .recommend {width:1180px; margin:40px auto;}
+.container .recommend .banner {height:180px; background:url(https://s3-ap-northeast-1.amazonaws.com/dabang-etc-files/71c939d8-37f0-4e96-ab83-d3c841717d0d) center center / cover no-repeat;}
+.container .recommend .product h2 {margin-top:100px; font-size:24px; line-height:36px; font-weight:100;}
+.container .recommend .product h2 strong {font-weight: 700;}
+.container .recommend .product .choice {position:relative; display:flex; margin-top:20px;}
+.container .recommend .product .choice .box01 , .box02 , .box03 { padding: 8px 12px; border: 1px solid rgb(231, 231, 231);}
+.container .recommend .product .choice .box02, .box03 {margin-left:8px;} 
+.container .recommend .product .choice .more {display:flex; margin-left:auto; align-items:center; font-size:15px; line-height:22px; cursor:pointer;}
+.container .recommend .product ul {display:flex; justify-content:space-between; margin-top:20px; color:rgb(34, 34, 34); }
+.container .recommend .product ul li {position:relative; width:280px; height:338px;}
+.container .recommend .product ul li:hover div.photo::after {display:block;} 
+.container .recommend .product ul li a {color:rgb(34, 34, 34);}
+.container .recommend .product ul li div.photo {position:relative; height:186px;}
+.container .recommend .product ul li div.photo::after {display:none; position:absolute; z-index:1; content:""; left:0; top:0; content:''; width:100%; height:100%; background:rgb(34, 34, 34, 0.3);}
+.container .recommend .product ul li div.photo img {width:100%; height:100%;}
+.container .recommend .product ul li .room_desc {margin-top:20px;}
+.container .recommend .product ul li .room_desc .desc {color:rgb(34, 34, 34, 0.6); line-height:20px; font-size:14px; margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+.container .recommend .product ul li p.title {font-size:20px; line-height:29px; font-weight:700; margin-top:4px;}
+.like {position:absolute; content:''; top:10px; right:10px; color:red; z-index:2;}
+.container .info {height:694px; background:rgb(67, 77, 104);}
+.container .info > div {width:1180px; margin:0 auto; padding:60px 0px 80px;}
+.container .info > div h1 {color:#fff; line-height:40px; font-size:28px; color:rgb(255, 255, 255); font-weight:300;}
+.container .info > div .box {width:580px; margin-top:30px;}
+.container .info > div .box .img {position:relative; height:300px; background:#fff;}
+.container .info > div .box .img::after {content:''; display:block; width:100%; height:300px; background:url('https://d2o59jgeq8ig2.cloudfront.net/complex/1024/4ee9965f-b329-408e-962c-02360c9777d5') center center / cover no-repeat;}
+.container .info > div .box ul {background:#fff; display:flex; padding:22px 0;}
+.container .info > div .box ul li {width:25%; padding:0 20px;}
+.container .info > div .box ul li + li {border-left:1px solid rgb(223, 223, 223);}
+.container .guide {background:#fff;} 
+.container .guide .inner {width:1180px; margin:0 auto; padding:100px 0 150px;}
+.container .guide .inner h1 {font-weight:400;}
+.container .guide .inner ul.guide_slide {display:flex; margin-top:40px;}
+.container .guide .inner ul.guide_slide li {position:relative;width:232px; height:330px; background:#f0f0f0; border-top:3px solid rgb(57, 107, 243);}
+.container .guide .inner ul.guide_slide li + li {margin-left:4px;}
+.container .guide .inner ul.guide_slide li a {display:block; height:100%; padding:33px 20px 30px 30px; color:rgb(57, 107, 243);}
+.container .guide .inner ul.guide_slide li a span {display:inline-block; font-size:14px; line-height:30px; border-bottom:1px solid rgb(57, 107, 243); }
+.container .guide .inner ul.guide_slide li a div {font-size:22px; line-height:30px; margin-top:20px;}
+.container .guide .inner ul.guide_slide li a svg {position:absolute; left:30px; bottom:30px;}
+.container .guide .inner > div ul {display:flex; justify-content:space-around; margin-top:210px;}
+.container .guide .inner > div ul li {display:flex; flex-direction:column;}
+.container .guide .inner > div ul li p {font-size:15px; font-weight:700; line-height:22px; margin-bottom:18px; color:rgb(34, 34, 34);}
+.container .guide .inner > div ul li a {font-size:15px; line-height:30px; color:rgb(136, 136, 136);}
+.footer {background-color: rgb(55, 55, 55);}
+.footer .inner {width:1180px; margin:0 auto;}
+.footer .inner a {color:#aaa;}
+.footer .inner .lnb {display:flex; height:70px; border-bottom:1px solid rgb(69, 69, 69);}
+.footer .inner .lnb ul {display:flex; align-items:center;}
+.footer .inner .lnb ul li + li {margin-left:16px; padding-left:16px; border-left:1px solid rgb(102, 102, 102);}
+.footer .inner .lnb form {display:flex; margin-left:auto; width:340px; display:flex; align-items: center;}
+.footer .inner .lnb form select {width:130px;
+    color:rgb(144, 144, 144);
+    font-size: 13px;
+    background: url('https://www.dabangapp.com/static/media/ic-24-arrow-down-gray-500.bf29b9b2.svg') right 8px center no-repeat;
+    border:none;
+    outline:none;
+    appearance:none;
+    white-space: nowrap;}
+.footer .inner .lnb .top {width:70px; height:70px; border:1px solid rgb(69, 69, 69); color:rgb(144, 144, 144);}
+.footer .inner .foot_info {padding:30px 0; color:#a0a0a0; font-size:12px; line-height:18px;}
+</style>
+
+
+<body>
+  <div class="wrap">
+    <div class="main_visual">
+      <div class="header">
+        <div class="logo">
+          <a href="#">
+            <svg width="72" height="31" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0V21.1095H15.9061V15.0782H6.36266V6.03127H15.9061V0H0Z" fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M62.1038 0V12.0625H68.4664V6.03127H74.8291V0H62.1038Z" fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M21.3333 0V12.0625H27.6954V6.03127H34.0581V0H21.3333Z" fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M50.9005 0V4.52346H46.1285V0H39.7659V21.1095H57.2632V0H50.9005ZM46.1285 15.0782H50.9005V10.5552H46.1285V15.0782Z" fill="white"></path>
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M69.8073 25.7778C68.3344 25.7778 67.1408 24.5837 67.1408 23.1114C67.1408 21.6385 68.3344 20.445 69.8073 20.445C71.2802 20.445 72.4738 21.6385 72.4738 23.1114C72.4738 24.5837 71.2802 25.7778 69.8073 25.7778ZM69.8073 14.2222C64.898 14.2222 60.9185 18.2022 60.9185 23.1114C60.9185 28.0201 64.898 32 69.8073 32C74.7167 32 78.6962 28.0201 78.6962 23.1114C78.6962 18.2022 74.7167 14.2222 69.8073 14.2222Z" fill="white"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="gnb">
+          <ul>
+            <li><a href="#">지도</a></li>
+            <li><a href="#">분양</a></li>
+            <li><a href="#">관심목록</a></li>
+            <li><a href="#">방내놓기</a></li>
+            <li><a href="#">알림</a></li>
+            <li><a href="#">MY 비대면계약</a></li>
+          </ul>
+          <button><span>로그인 | 회원가입</span></button>
+          <a class="inquiry" href="#">중개사 가입/광고문의</a>
+        </div>
+      </div>
+      <div class="search">
+        <h1>어떤 방을 찾으세요?</h1>
+        <div><a href="#">매물</a><a href="#">분양</a></div>
+        <form>
+          <label>
+            <svg width="24" height="24" viewBox="0 0 24 24">
+              <g fill="none" fill-rule="evenodd">
+                <path d="M0 0H24V24H0z"></path>
+                <g stroke="#222" stroke-width="2" transform="translate(2 2)">
+                  <circle cx="8" cy="8" r="8"></circle>
+                  <path stroke-linecap="round" d="M15 14L19.95 18.95"></path>
+                </g>
+              </g>
+            </svg>
+          </label>
+          <input placeholder="지역 또는 단지명을 입력하세요." value="">
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <div class="recommend">
+        <div class="banner"></div>
+        <div class="product">
+          <h2><strong>서초동</strong> 추천매물</h2>
+          <div class="choice">
+            <div class="box01">서초동</div>
+            <div class="box02">원룸,투쓰리룸,오피스텔</div>
+            <div class="box03">월세,전세</div>
+            <div class="more"><span>더 많은 방 보기 ></span></div>
+          </div>
+          <ul>
+            <li>
+              <a href="#">
+                <div class="photo"><img src="https://d1774jszgerdmk.cloudfront.net/512/122d4b9e-b03d-4669-a30c-acd67e723b66"></div>
+                <div class="room_desc">
+                  <span>오피스텔 • 아멜리아</span>
+                  <p class="title">월세 200/110</p>
+                  <p class="desc">
+                    10층, 19.84m², 관리비 10만<br>
+                    report to immigration Ok 거소신고가능 / 
+                  </p>
+                </div>
+              </a>
+              <button class="like">🤍</button>
+            </li>
+            <li>
+              <a href="#">
+                <div class="photo"><img src="https://d1774jszgerdmk.cloudfront.net/512/81ba5327-b9f1-4726-86cd-e3744e692111"></div>
+                <div class="room_desc">
+                  <span>원룸</span>
+                  <p class="title">월세 200/95</p>
+                  <p class="desc">
+                    2층, 31.98m², 관리비 15만<br>
+                    1개월 가능 / 에어컨,냉장고 새것 / 보증금조
+                  </p>
+                </div>
+              </a>
+              <button class="like">🤍</button>
+            </li>
+            <li>
+              <a href="#">
+                <div class="photo"><img src="https://d1774jszgerdmk.cloudfront.net/512/86da8508-23bb-4516-99b7-7982bc100092"></div>
+                <div class="room_desc">
+                  <span>오피스텔 • 엘루크반포</span>
+                  <p class="title">월세 1000/140</p>
+                  <p class="desc">
+                    중층, 33.12m², 관리비 10만<br>
+                    추천.신축첫입주.하이엔드오피스텔.교대역2분
+                  </p>
+                </div>
+              </a>
+              <button class="like">🤍</button>
+            </li>
+            <li>
+              <a href="#">
+                <div class="photo"><img src="https://d1774jszgerdmk.cloudfront.net/512/b97029db-15a9-4699-983e-3ea3f621e54f"></div>
+                <div class="room_desc">
+                  <span>오피스텔 • 서초현대렉시온</span>
+                  <p class="title">월세 120/120</p>
+                  <p class="desc">
+                    고층, 34m², 관리비 10만<br>
+                    강남역 채광좋고 전망좋은 최고급 복층형 럭셔리 
+                  </p>
+                </div>
+              </a>
+              <button class="like">🤍</button>
+            </li>
+          </ul>
+        </div>
+      </div>  
+      <div class="info">
+        <div>
+          <h1>분양정보</h1>
+          <div class="box">
+            <a href="">
+              <div class="state"></div>
+              <div class="title"></div>
+              <div class="img"></div>
+              <ul>
+                <li>
+                  <p class="title">건물 유형</p>
+                  <p class="value">아파트</p>
+                </li>
+                <li>
+                  <p class="title">공급유형</p>
+                  <p class="value">민간분양</p>
+                </li>
+                <li>
+                  <p class="title">총/분양 세대수</p>
+                  <p class="value">총 660세대 /</p>
+                  <p class="value">입주 660세대</p>
+                </li>
+                <li>
+                  <p class="title">전용면적</p>
+                  <p class="value">74㎡ / 84㎡ / 97㎡ / 110m²</p>
+                </li>
+              </ul>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="guide">
+        <div class="inner">
+          <h1>다방이 알려주는 부동산 가이드</h1>
+          <ul class="guide_slide">
+            <li>
+              <a href="#">
+                <span>다방 이야기</span>
+                <div>
+                  <p>다방</p>
+                  <p>허위매물 예방 5계명</p>
+                </div>
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                  <g fill="none" fill-rule="evenodd" stroke="#396bf3">
+                    <path d="M12 10l4 4-4 4"></path>
+                    <circle cx="14" cy="14" r="13.5"></circle>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>다방 이야기</span>
+                <div>
+                  <p>다방</p>
+                  <p>허위매물 예방 5계명</p>
+                </div>
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                  <g fill="none" fill-rule="evenodd" stroke="#396bf3">
+                    <path d="M12 10l4 4-4 4"></path>
+                    <circle cx="14" cy="14" r="13.5"></circle>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>다방 이야기</span>
+                <div>
+                  <p>다방</p>
+                  <p>허위매물 예방 5계명</p>
+                </div>
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                  <g fill="none" fill-rule="evenodd" stroke="#396bf3">
+                    <path d="M12 10l4 4-4 4"></path>
+                    <circle cx="14" cy="14" r="13.5"></circle>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>다방 이야기</span>
+                <div>
+                  <p>다방</p>
+                  <p>허위매물 예방 5계명</p>
+                </div>
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                  <g fill="none" fill-rule="evenodd" stroke="#396bf3">
+                    <path d="M12 10l4 4-4 4"></path>
+                    <circle cx="14" cy="14" r="13.5"></circle>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span>다방 이야기</span>
+                <div>
+                  <p>다방</p>
+                  <p>허위매물 예방 5계명</p>
+                </div>
+                <svg width="28" height="28" viewBox="0 0 28 28">
+                  <g fill="none" fill-rule="evenodd" stroke="#396bf3">
+                    <path d="M12 10l4 4-4 4"></path>
+                    <circle cx="14" cy="14" r="13.5"></circle>
+                  </g>
+                </svg>
+              </a>
+            </li>
+          </ul>
+          <div>
+            <ul>
+              <li>
+                <p>형태별 검색</p>
+                <a href="#">원룸</a>
+                <a href="#">투·쓰리룸</a>
+                <a href="#">오피스텔</a>
+                <a href="#">아파트</a>
+              </li>
+              <li>
+                <p>패밀리 사이트</p>
+                <a href="#">다방프로 중개사</a>
+                <a href="#">다방허브 임대관리</a>
+                <a href="#">다방싸인</a>
+              </li>
+              <li>
+                <p>상품소개</p>
+                <a href="#">패키지 상품</a>
+                <a href="#">일반 상품</a>
+                <a href="#">단지 상품</a>
+                <a href="#">프리미엄 상품</a>
+                <a href="#">플러스 상품</a>
+                <a href="#">이 지역 부동산 상품</a>
+              </li>
+              <li>
+                <p>다방 뉴스</p>
+                <a href="#">공지사항</a>
+                <a href="#">이벤트</a>
+              </li>
+              <li>
+                <p>고객지원</p>
+                <a href="#">자주묻는 질문</a>
+                <a href="#">Android</a>
+                <a href="#">IOS</a>
+              </li>
+              <li>
+                <p>About다방</p>
+                <a href="#">회사소개</a>
+                <a href="#">오시는 길</a>
+                <a href="#">제휴문의</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="inner">
+        <div class="lnb">
+          <ul>
+            <li><a href="#">회사소개</a></li>
+            <li><a href="#">이용약관</a></li>
+            <li><a href="#">개인정보처리방침</a></li>
+            <li><a href="#">매몰관리규정</a></li>
+          </ul>
+          <form>
+            <div>
+              <select>
+                <option>일반 매물번호</option>
+                <option>현장촬영 매물번호</option>
+              </select>
+            </div>
+          </form>
+          <button class="top">
+            <p>TOP</p>
+          </button>
+        </div>
+        <div class="foot_info">
+          <address>
+            (주)스테이션3<br>
+            대표 : 유형석<br>
+            사업자 번호: 220-88-59156     통신판매업신고번호 : 제2013-서울 강남-02884호<br>
+            주소 : 서울시 서초구 서초대로 301 동익 성봉빌딩 10층 (주)스테이션3
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+
+
+  </script>	
+
+
+</body>
+</html>
